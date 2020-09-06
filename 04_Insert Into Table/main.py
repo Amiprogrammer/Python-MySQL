@@ -10,10 +10,13 @@ jm = mysql.connector.connect(
 mycursor = jm.cursor()
 
 sql = "INSERT INTO costumer (name,address) VALUES (%s,%s)"
-val = ("Joaquim","Vilaverde 33")
+val = ("Genoveva","Tasi3")
 
 mycursor.execute(sql,val)
 
 jm.commit()
 
-print(mycursor.rowcount, "record inserted!")
+if( mycursor.rowcount > 0 ):
+	print("Success inserted!")
+else:
+	print("Fail inserted!")
