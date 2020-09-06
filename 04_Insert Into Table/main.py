@@ -10,13 +10,17 @@ jm = mysql.connector.connect(
 mycursor = jm.cursor()
 
 sql = "INSERT INTO costumer (name,address) VALUES (%s,%s)"
-val = ("Genoveva","Tasi3")
+val = [
+	("Ronaldo","Bidau"),
+	("Ebby","Manleu"),
+	("Peu amateur","Caicoli"),
+	("Aleixo","Aitarak"),
+	("Mario","Aimutin"),
+	("Azito","Becora")
+]
 
-mycursor.execute(sql,val)
+mycursor.executemany(sql,val)
 
 jm.commit()
 
-if( mycursor.rowcount > 0 ):
-	print("Success inserted!")
-else:
-	print("Fail inserted!")
+print(mycursor.rowcount, "was inserted!")
