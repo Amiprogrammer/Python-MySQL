@@ -10,17 +10,10 @@ jm = mysql.connector.connect(
 mycursor = jm.cursor()
 
 sql = "INSERT INTO costumer (name,address) VALUES (%s,%s)"
-val = [
-	("Ronaldo","Bidau"),
-	("Ebby","Manleu"),
-	("Peu amateur","Caicoli"),
-	("Aleixo","Aitarak"),
-	("Mario","Aimutin"),
-	("Azito","Becora")
-]
+val = ("Teresinha","Taibessi")
 
-mycursor.executemany(sql,val)
+mycursor.execute(sql,val)
 
 jm.commit()
 
-print(mycursor.rowcount, "was inserted!")
+print("1 record inserted, ID", mycursor.lastrowid)
