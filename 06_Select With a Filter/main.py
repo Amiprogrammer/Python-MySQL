@@ -9,7 +9,10 @@ jmdb = mysql.connector.connect(
 
 mycursor = jmdb.cursor()
 
-mycursor.execute("SELECT * FROM costumer WHERE name LIKE \"%ohn%\"")
+sql = "SELECT * FROM costumer WHERE name = %s"
+val = ("berjeki",)
+
+mycursor.execute(sql,val)
 
 myresult = mycursor.fetchall()
 
