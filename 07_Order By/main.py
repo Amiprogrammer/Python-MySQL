@@ -9,7 +9,9 @@ db = mysql.connector.connect(
 
 mycursor = db.cursor()
 
-mycursor.execute("SELECT * FROM costumer ORDER BY name")
+# mycursor.execute("SELECT * FROM costumer ORDER BY name") or "SELECT * FROM costumer ORDER BY name ASC"
+
+mycursor.execute("SELECT * FROM costumer ORDER BY name DESC")
 
 result = mycursor.fetchall()
 
