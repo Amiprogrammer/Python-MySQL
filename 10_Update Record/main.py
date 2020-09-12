@@ -44,11 +44,18 @@ mycursor = db.cursor()
 # for x in result:
 	# print(x)
 
-sql = "UPDATE costumer SET name = %s WHERE address = %s"
-val = ("Teresinha Pinto","Lahane")
+# sql = "UPDATE costumer SET name = %s WHERE address = %s"
+# val = ("Teresinha Pinto","Lahane")
 
-mycursor.execute(sql,val)
+# mycursor.execute(sql,val)
 
-db.commit()
+# db.commit()
 
-print(mycursor.rowcount, "record(s) affected.")
+# print(mycursor.rowcount, "record(s) affected.")
+
+mycursor.execute("SELECT * FROM costumer")
+
+result = mycursor.fetchall()
+
+for x in result:
+	print(x)
