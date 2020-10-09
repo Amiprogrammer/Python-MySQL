@@ -44,6 +44,7 @@ def insert_date():
 
 def delete_date(x):
     global mycursor
+    x = x.lower()
     sql = "DELETE FROM estudent WHERE name = %s"
     val = (x,)
     mycursor.execute(sql,val)
