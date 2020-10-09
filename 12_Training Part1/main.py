@@ -136,6 +136,7 @@ while True:
         2). insert date
         3). edit date
         4). delete date
+        5). Search date
         """)
         user_choose = str(input("\ntype number here or (quit,exit to close the program): "))
 
@@ -151,6 +152,16 @@ while True:
         elif( user_choose == "4" ):
             id = str(input("you want to delete.(type name) "))
             delete_date(id)
+        elif( user_choose == "5" ):
+            id = str(input("keyword(s) name here: "))
+            sql = "SELECT name,gender,address FROM estudent WHERE name = %s"
+            val = (id,)
+            mycursor.execute(sql,val)
+            result = mycursor.fetchall()
+            for i,x in zip(range(1,2),result):
+                print(66*"_")
+                print(f"|{i} \t |{x[0]} \t |{x[1]} \t\t |{x[2]} \t |")
+                print(66*"_")
         elif( user_choose.lower() == "quit" or user_choose.lower() == "exit"):
             break
         else:
