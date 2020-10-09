@@ -57,7 +57,73 @@ def delete_date(x):
         print(mycursor.rowcount, "record(s) not deleted!")
 
 def update_date():
-    pass
+    global mycursor
+
+    name = str(input("you want to update.(type name) "))
+    sql = "SELECT name,gender,address FROM estudent WHERE name = %s"
+    val = (name,)
+    mycursor.execute(sql,val)
+    result = mycursor.fetchone()
+    print("=== Date ===")
+    for i,x in zip(["name","gender","address"],result):
+        print(f"{i} :{x}")
+    print("==========")
+
+    while True:
+        print("""\n\
+        1). name
+        2). gender
+        3). address
+        \n""")
+
+        id = str(input("do you want to update? "))
+        if( id == "name" or id == "1"):
+            name_update = str(input("new name? "))
+
+            sql = "UPDATE estudent SET name = %s WHERE name = %s"
+            val = (name_update,name,)
+            mycursor.execute(sql,val)
+
+            mydb.commit()
+
+            if( mycursor.rowcount > 0 ):
+                print(mycursor.rowcount, "record(s) updated!")
+            else:
+                print(mycursor.rowcount, "record(s) not updated!")
+
+            break
+        elif( id == "gender" or id == "2"):
+            gender_update = str(input("new gender(m/f)? "))
+
+            sql = "UPDATE estudent SET gender = %s WHERE name = %s"
+            val = (gender_update,name,)
+            mycursor.execute(sql,val)
+
+            mydb.commit()
+
+            if( mycursor.rowcount > 0 ):
+                print(mycursor.rowcount, "record(s) updated!")
+            else:
+                print(mycursor.rowcount, "record(s) not updated!")
+
+            break
+        elif( id == "address" or id == "3"):
+            address_update = str(input("new address? "))
+
+            sql = "UPDATE estudent SET address = %s WHERE name = %s"
+            val = (address_update,name,)
+            mycursor.execute(sql,val)
+
+            mydb.commit()
+
+            if( mycursor.rowcount > 0 ):
+                print(mycursor.rowcount, "record(s) updated!")
+            else:
+                print(mycursor.rowcount, "record(s) not updated!")
+
+            break
+        else:
+            print("not match!")
 
 print("=== Databases Application ===")
 
@@ -71,7 +137,7 @@ while True:
         3). edit date
         4). delete date
         """)
-        user_choose = str(input("\ntype number here: "))
+        user_choose = str(input("\ntype number here or (quit,exit to close the program): "))
 
         if( user_choose == "1" ):
             # call view_date function
