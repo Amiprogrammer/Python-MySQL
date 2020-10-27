@@ -8,3 +8,9 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
+
+mycursor.execute("DELETE FROM estudent WHERE address = 'lahane'")
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) deleted!")
