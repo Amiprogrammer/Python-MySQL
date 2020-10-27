@@ -12,4 +12,4 @@ mycursor = mydb.cursor()
 # mycursor.execute("CREATE DATABASE testing2")
 # mycursor.execute("CREATE TABLE costumer(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))")
 
-mycursor.execute("DROP TABLE costumer")
+mycursor.execute("DROP TABLE IF EXISTS costumer")
