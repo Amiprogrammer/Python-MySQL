@@ -8,3 +8,5 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
+
+mycursor.execute("CREATE TABLE estudent (name VARCHAR(255), email VARCHAR(255), address VARCHAR(255))")
