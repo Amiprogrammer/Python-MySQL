@@ -13,4 +13,4 @@ mycursor = mydb.cursor()
 
 # mycursor.execute("DROP TABLE IF EXISTS costumer")
 
-mycursor.execute("DROP DATABASE testing2")
+mycursor.execute("DROP DATABASE IF EXISTS testing2")
