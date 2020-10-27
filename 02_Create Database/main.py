@@ -1,12 +1,15 @@
 import mysql.connector
 
-db = mysql.connector.connect(
+mydb = mysql.connector.connect(
         host="localhost",
         username="root",
-        password="root"
+        password="root",
+        database="testing"
 )
 
-mycursor = db.cursor()
+print(mydb)
+
+mycursor = mydb.cursor()
 
 # mycursor.execute("CREATE DATABASE testing")
 
