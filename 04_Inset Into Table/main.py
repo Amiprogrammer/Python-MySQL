@@ -10,9 +10,17 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 sql = "INSERT INTO estudent (name,email,address) VALUES (%s,%s,%s)"
-val = ("juliao martins","juliaomartins@gmail.com","tasi-3")
+# val = ("juliao martins","juliaomartins@gmail.com","tasi-3")
+# more inserted
+val = [
+    ("carmo da silva","carmodasilva@gmail.com","bebonuk"),
+    ("joana carvalho","joanacarvalho@gmail.com","lahane"),
+    ("celestina maria","celestinamaria@gmail.com","kuluhun"),
+    ("jaime perdeus","jaimeperdeus@gmail.com","tibar")
+]
 
-mycursor.execute(sql,val)
+
+mycursor.executemany(sql,val)
 
 mydb.commit()
 
