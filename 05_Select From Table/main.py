@@ -8,3 +8,10 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM estudent")
+
+result = mycursor.fetchone()
+
+for x in result:
+    print(x)
