@@ -9,7 +9,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT * FROM estudent LIMIT 5")
+mycursor.execute("SELECT * FROM estudent LIMIT 5 OFFSET 2")
 
 result = mycursor.fetchall()
 
