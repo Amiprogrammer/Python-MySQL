@@ -9,7 +9,12 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("DELETE FROM estudent WHERE address = 'lahane'")
+# mycursor.execute("DELETE FROM estudent WHERE address = 'lahane'")
+
+sql = "DELETE FROM estudent WHERE name = %s"
+val = ("juliao martins",)
+
+mycursor.execute(sql,val)
 
 mydb.commit()
 
