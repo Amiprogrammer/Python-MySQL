@@ -8,3 +8,12 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
+
+sql = "UPDATE estudent SET name=%s WHERE address=%s"
+val = ("antonio marcal","tibar")
+
+mycursor.execute(sql,val)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) updated!")
