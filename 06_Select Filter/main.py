@@ -9,7 +9,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT * FROM estudent WHERE name = 'juliao martins'")
+mycursor.execute("SELECT * FROM estudent WHERE name LIKE '%juliao%'")
 
 result = mycursor.fetchone()
 
